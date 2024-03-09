@@ -1,0 +1,12 @@
+.orders{
+    padding: 50px;
+    display: flex;
+}
+.main{
+    width: 100%;
+    margin-left: 20px;
+}
+.main-items{
+    display: flex;
+    justify-content: space-between;
+}
