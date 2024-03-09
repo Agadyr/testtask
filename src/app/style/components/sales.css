@@ -1,3 +1,28 @@
 .sales{
+    margin-top: 25px;
     width: 49%;
+}
+.sales .order-header h1{
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 27px;
+    cursor: pointer;
+}
+.period-header h1{
+    font-size: 18px;
+    cursor: pointer;
+}
+.period-header{
+    padding: 15px 40px;
+}
+.sales .table{
+    margin-top: 32px;
+}
+.col span{
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+span p{
+    font-size: 14px;
 }

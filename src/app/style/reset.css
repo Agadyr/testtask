@@ -1,6 +1,6 @@
 *{
-	font-family: "Questrial", sans-serif;
-	font-weight: 400;
+	font-family: "Roboto", sans-serif;
+	font-weight: 300;
 	font-style: normal;
 }
 html, body, div, span, applet, object, iframe,
@@ -60,4 +60,7 @@ body{
 }
 .g1{
 	gap: 10px;
+}
+.g2{
+	gap: 20px;
 }

@@ -1,129 +1,62 @@
-import { faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
+'use client'
+import { faEllipsisVertical, faL } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Order from "./order";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-export default function AboutOrder({ orders }) {
+const getSorted = (data, key, order) => {
+  return [...data].sort((a, b) => {
+    const aValue = a[key];
+    const bValue = b[key];
 
-    let [databack, setData] = useState([
-        {
-          "contragent_img": "/user.png",
-          "contragent_full_name": "Виктория Свидролова",
-          "time": "4 минуты назад",
-          "number": "0000001",
-          "sum": 100001,
-          "status": "Старый"
-        },
-        {
-          "contragent_img": "/user.png",
-          "contragent_full_name": "Виктория Свидролова",
-          "time": "4 минуты назад",
-          "number": "0000001",
-          "sum": 100002,
-          "status": "Новый"
-        },
-        {
-          "contragent_img": "/user.png",
-          "contragent_full_name": "Виктория Свидролова",
-          "time": "4 минуты назад",
-          "number": "0000001",
-          "sum": 100003,
-          "status": "Новый"
-        },
-        {
-          "contragent_img": "/user.png",
-          "contragent_full_name": "Виктория Свидролова",
-          "time": "4 минуты назад",
-          "number": "0000001",
-          "sum": 100004,
-          "status": "Новый"
-        }
-      ]);
-    const [sortKeys, setSortKeys] = useState({
-        contragent_full_name: "asc",
-        number: "asc",
-        sum: "asc",
-        status: "asc"
-    });
-    const[sortKey, setSortKey] =  useState("status")
-
-    databack = databack.sort((a, b) => {
-            let aPart, bPart;
-            if (sortKey == "status") {
-                aPart = a.status;
-                bPart = b.status;
-            } else if (sortKey == "contragent_full_name") {
-                aPart = a.contragent_full_name;
-                bPart = b.contragent_full_name;
-            } else if (sortKey == "sum") {
-                aPart = a.sum;
-                bPart = b.sum;
-            } else if (sortKey == "number") {
-                aPart = a.number;
-                bPart = b.number;
-            }
-            if (sortKeys[sortKey] == "asc") {
-                if (aPart < bPart) {
-                    return -1;
-                }
-                if (aPart > bPart) {
-                    return 1;
-                }
-            } else {
-                if (aPart > bPart) {
-                    return -1;
-                }
-                if (aPart < bPart) {
-                    return 1;
-                }
-            }
-            
-            return 0;
-        });
-
-  const sortBy = (key) => {
-    setSortKey(key)
-    setSortKeys((prevKeys) => ({
-      ...prevKeys,
-      [key]: prevKeys[key] == "asc" ? "desc" : "asc"
-    }));
+    if (order === "asc") {
+      return aValue < bValue ? -1 : aValue > bValue ? 1 : 0;
+    } else {
+      return aValue > bValue ? -1 : aValue < bValue ? 1 : 0;
+    }
+  });
 };
 
-  const showOrders = databack.map((item, index) => (
-    <Order item={item} key={index} />
-  ));
+export default function AboutOrder({databack,deleteItem}) {
+  const [sortKey, setSortKey] = useState("status");
+  const [sortOrder, setSortOrder] = useState("asc");
+
+  const sortBy = (key) => {
+    if (key === sortKey) {
+      setSortOrder(sortOrder === "asc" ? "desc" : "asc");
+    } else {
+      setSortKey(key);
+      setSortOrder("asc");
+    }
+  };
+
+  const sortedData = getSorted(databack, sortKey, sortOrder);
 
   return (
     <div className="table">
       <div className="row row-header df">
-        <div
-          className={`col ${sortKeys["contragent_full_name"]}`}
-          onClick={() => sortBy("contragent_full_name")}>
+        <div className={`col ${sortOrder}`} onClick={() => sortBy("contragent_full_name")}>
           Контрагент{" "}
-         <img src="/icons/up.svg" alt="" />
+          {sortKey === "contragent_full_name" && (
+            <img src="/icons/up.svg" alt="" />
+          )}
         </div>
-        <div
-          className={`col ${sortKeys["number"]}`}
-          onClick={() => sortBy("number")}>
-          Заказ №
-          <img src="/icons/up.svg" alt="" />
+        <div className={`col ${sortOrder}`} onClick={() => sortBy("number")}>
+          Заказ №{" "}
+          {sortKey === "number" && <img src="/icons/up.svg" alt="" />}
         </div>
-        <div
-          className={`col ${sortKeys["sum"]}`}
-          onClick={() => sortBy("sum")}>
-          Сумма
-          <img src="/icons/up.svg" alt="" />
+        <div className={`col ${sortOrder}`} onClick={() => sortBy("sum")}>
+          Сумма {sortKey === "sum" && <img src="/icons/up.svg" alt="" />}
         </div>
-        <div
-          className={`col ${sortKeys["status"]}`}
-          onClick={() => sortBy("status")}
-        >
-          Статус
-          <img src="/icons/up.svg" alt="" />
+        <div className={`col ${sortOrder}`} onClick={() => sortBy("status")}>
+          Статус{" "}
+          {sortKey === "status" && <img src="/icons/up.svg" alt="" />}
         </div>
         <FontAwesomeIcon icon={faEllipsisVertical} className="dots" />
       </div>
-      {showOrders}
+      {sortedData.map((item, index) => (
+        <Order item={item} key={index} deleteItem={deleteItem}/>
+      ))}
     </div>
   );
 }
