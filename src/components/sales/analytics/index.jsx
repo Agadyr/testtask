@@ -1,7 +1,7 @@
 import AboutOrder from "@/components/orders/about-order/page";
 import { data, finishOrders } from "@/config/config";
 import { useState } from "react";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, AreaChart, Area } from 'recharts';
+import { XAxis, YAxis, Tooltip, ResponsiveContainer, AreaChart, Area } from 'recharts';
 
 export default function Analytics() {
     const [databack, setData] = useState(finishOrders);
@@ -24,7 +24,7 @@ export default function Analytics() {
             </div>
             <div style={{padding:"20px"}}>
             <ResponsiveContainer width="100%" height={300}>
-                    <LineChart
+                    <AreaChart
                         width={500}
                         height={400}
                         data={data}
@@ -38,8 +38,10 @@ export default function Analytics() {
                         <XAxis dataKey="name" stroke="#586A84"/>
                         <YAxis tickCount={8} stroke="#586A84"/>
                         <Tooltip />
-                        <Line type="monotone" dataKey="uv" stroke="#9E13F3" fill="#9E13F3" strokeOpacity={0.7}/>
-                    </LineChart>
+                        <Area type="monotone" dataKey="uv" stroke="#9E13F3" strokeWidth={3} fillOpacity="0.2" fill="#9E13F3">
+
+                        </Area>
+                    </AreaChart>
                 </ResponsiveContainer>
                 <AboutOrder deleteItem={deleteItem} databack={databack}/>
             </div>

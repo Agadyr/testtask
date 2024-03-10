@@ -16,6 +16,7 @@ export default function Nav(){
             {icons.map((item, index) => (
                 <IconsOfNav
                     index={index}
+                    key={index}
                     item={item}
                     setIsHovered={setIsHovered}
                     isHovered={isHovered}

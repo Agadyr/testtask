@@ -96,6 +96,31 @@ export const finishOrders = [
         "sum":100007,
         "status":"Отменен"
      },
+     {
+      "contragent_img":"/user2.png",
+      "contragent_full_name":"Виктория Свидролова",
+      "time":"01.01.2023г.",
+      "number":"0000001",
+      "sum":100007,
+      "status":"Отменен"
+   },
+   {
+      "contragent_img":"/user2.png",
+      "contragent_full_name":"Виктория Свидролова",
+      "time":"01.01.2023г.",
+      "number":"0000001",
+      "sum":100007,
+      "status":"Отменен"
+   },
+   {
+      "contragent_img":"/user2.png",
+      "contragent_full_name":"Виктория Свидролова",
+      "time":"01.01.2023г.",
+      "number":"0000001",
+      "sum":100007,
+      "status":"Успешно"
+   },
+     
 ]
 
 export const orders = [

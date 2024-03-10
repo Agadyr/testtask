@@ -1,6 +1,8 @@
 .orders{
     padding: 50px;
     display: flex;
+    justify-content: center;
+    height: 100%;
 }
 .main{
     width: 100%;
@@ -9,4 +11,154 @@
 .main-items{
     display: flex;
     justify-content: space-between;
+}
+.icon-none{
+    display: none;
+}
+.none{
+    display: none !important;
+}
+.header-none{
+    display: none;
+}
+.row-none{
+    display: none !important;
+}
+.fd{
+    flex-direction: column;
+}
+.jcc{
+    justify-content: center;
+}
+.aife{
+    align-items: flex-end !important;
+}
+.mt2{
+    margin-top: 20px;
+}
+@media (max-width:1460px) {
+    .main-items{
+        flex-direction: column;
+    }
+    .sales{
+        width: 100% !important;
+        margin-top: 50px !important;
+    }
+    .order{
+        width: 100% !important;
+
+    }
+}
+@media (max-width:968px) {
+    h4,span {
+        font-size: 14px;
+    }
+    .order-header-flex .btn-bordered{
+        font-size: 12px;
+        display: none;
+    }
+    .order .icon-none{
+        display: flex !important;
+    }
+    .order .icon-none{
+        width: 20px;
+        height: 20px;
+        border: 1px solid #0077e4;
+        border-radius: 10px;
+        padding: 14px;
+    }
+}
+@media (max-width:932px) {
+    nav{
+        display: none;
+    }
+    header{
+        display: none !important;
+    }
+    .header-none{
+        display: flex !important;
+    }
+    .filter{
+        padding: 12px !important;
+    }
+    .order .search-header input::placeholder{
+        font-size: 12px;
+    }
+    .none{
+        display: flex !important;
+    }
+    .order-header-flex{
+        display: none !important;
+    }
+    .order .icon-none{
+        width: 20px;
+        height: 20px;
+        border: 1px solid #0077e4;
+        border-radius: 10px;
+        padding: 8px;
+    }
+    .orders{
+        padding: 20px;
+    }
+}
+@media (max-width:540px) {
+    .table .row-header{
+        display: none !important;
+    }
+    .tp{
+        border-bottom: 1px solid #586A84 !important;
+        border-top: none !important;
+    }
+    .row-flex{
+        display: none !important;
+    }
+    .col{
+        width: 50% !important;
+    }
+    .row-none{
+        display: flex !important;
+    }
+    .row-none .df{
+        margin-top: 10px;
+        color: #DDE1E8;
+        gap: 5px;
+        font-size: 12px;
+    }
+    .row-none .fd{
+        height: 100%;
+        gap: 10px;
+        justify-content: center !important;
+
+    }
+    .row-none p{
+        margin: 0 !important;
+        padding: 0 !important;
+        font-weight: 200 !important;
+    }
+    .row-none h2{
+        min-width: 100px;
+        width: 100%;
+    }
+    .order-header .period-header h4{
+        display: none;
+    }
+    .period-header{
+        display: none !important;
+    }
+    .recharts-responsive-container{
+        display: none;
+    }
+}
+@media (max-width:390px) {
+    .order .search-header{
+        display: none;
+    }
+    .sales{
+        display: none;
+    }
+    header{
+        gap: 20px;
+    }
+
+
 }
