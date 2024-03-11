@@ -98,3 +98,6 @@ header{
     transition: .2s;
     cursor: pointer;
 }
+h4{
+    cursor: pointer;
+}

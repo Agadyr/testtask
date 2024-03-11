@@ -15,7 +15,7 @@ export default function Home() {
     if(input === ""){
       setDataFilter(databack)
     }else{
-      setDataFilter([...databack.filter(item => item.contragent_full_name.includes(input))])
+      setDataFilter([...databack.filter(item => item.contragent_full_name.toLowerCase().includes(input))])
     }  
   }, [input])
   return (
@@ -24,7 +24,7 @@ export default function Home() {
         <div className="main">
           <Header setInput={setInput} input={input}/>
           <div className="main-items">
-            {databack && <Order databack={databackFilter}/>}
+            {databack && <Order databack={databackFilter} setInput={setInput} input={input} setDataFilter={setDataFilter}/>}
             <Sales/>
           </div>
         </div>

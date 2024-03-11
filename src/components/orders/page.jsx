@@ -2,16 +2,13 @@
 import { faMagnifyingGlass, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import AboutOrder from "./about-order/page";
-import { useState } from "react";
-export default function Order({databack}){
-    const [input, setInput] = useState("")
-    console.log(databack);
+export default function Order({databack,setInput, input,setDataFilter}){
     const totalSum = databack.reduce((acc, curr) => acc + curr.sum, 0);
     const deleteItem = (item) => {
         let rm = [...databack]
         let index = databack.indexOf(item)
         rm.splice(index,1)
-        setData(rm)
+        setDataFilter(rm)
     }
     return (
         <div className="order">
