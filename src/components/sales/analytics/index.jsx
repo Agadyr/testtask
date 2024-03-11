@@ -1,7 +1,9 @@
 import AboutOrder from "@/components/orders/about-order/page";
-import { data, finishOrders } from "@/config/config";
+import { data, dataDay, dataMonth, finishOrders } from "@/config/config";
+import { faCalendarDays } from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
-import { XAxis, YAxis, Tooltip, ResponsiveContainer, AreaChart, Area } from 'recharts';
+import Graphic from "./graphic";
 
 export default function Analytics() {
     const [databack, setData] = useState(finishOrders);
@@ -12,39 +14,20 @@ export default function Analytics() {
         setData(rm)
     }
     const [valueSelect, setValueSelect] = useState("Неделя");
+
     return (
         <div>
             <div className="order-header period-header">
                 <h1>Выбор Периода</h1>
                 <div className="df jcsb aic g2">
-                    <h4 className={valueSelect === 'Сегодня' ? 'selected' : ""} onClick={() => setValueSelect('Сегодня')}>Сегодня</h4>
-                    <h4 className={valueSelect === 'Неделя' ? 'selected' : ""} onClick={() => setValueSelect('Неделя')}>Неделя</h4>
-                    <h4 className={valueSelect === 'Месяц' ? 'selected' : ""} onClick={() => setValueSelect('Месяц')}>Месяц</h4>
+                    <FontAwesomeIcon icon={faCalendarDays}/>
+                    <span href="/" className={valueSelect === 'Сегодня' ? 'selected' : ""} onClick={() => setValueSelect('Сегодня')}>Сегодня</span>
+                    <span href="/" className={valueSelect === 'Неделя' ? 'selected' : ""} onClick={() => setValueSelect('Неделя')}>Неделя</span>
+                    <span href="/" className={valueSelect === 'Месяц' ? 'selected' : ""} onClick={() => setValueSelect('Месяц')}>Месяц</span>
                 </div>
             </div>
-            <div style={{padding:"20px"}}>
-            <ResponsiveContainer width="100%" height={300}>
-                    <AreaChart
-                        width={500}
-                        height={400}
-                        data={data}
-                        margin={{
-                            top: 10,
-                            right: 30,
-                            left: 0,
-                            bottom: 0,
-                        }}
-                    >
-                        <XAxis dataKey="name" stroke="#586A84"/>
-                        <YAxis tickCount={8} stroke="#586A84"/>
-                        <Tooltip />
-                        <Area type="monotone" dataKey="uv" stroke="#9E13F3" strokeWidth={3} fillOpacity="0.2" fill="#9E13F3">
-
-                        </Area>
-                    </AreaChart>
-                </ResponsiveContainer>
-                <AboutOrder deleteItem={deleteItem} databack={databack}/>
-            </div>
+            <Graphic dataDay={dataDay} dataMonth={dataMonth} data={data} valueSelect={valueSelect}/>
+            <AboutOrder deleteItem={deleteItem} databack={databack}/>
         </div>
     );
 }

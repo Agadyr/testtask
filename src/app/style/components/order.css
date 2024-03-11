@@ -7,6 +7,7 @@
     justify-content: space-between;
     align-items: center;
     color: #fff;
+    height: 40px;
 }
 .order-header .btn-bordered{
     margin-top: 0;
@@ -14,7 +15,7 @@
     margin-left: -15px;
 }
 .selected{
-    color: #319DFF;
+    color: #319DFF !important;
     border-bottom: 1px solid #319DFF;
     padding-top: 10px;
     padding-bottom: 10px;

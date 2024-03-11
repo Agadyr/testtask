@@ -13,11 +13,12 @@
     font-size: 18px;
     cursor: pointer;
 }
+.period-header a{
+    text-decoration: none;
+    color: #fff;
+}
 .period-header{
     padding: 15px 40px;
-}
-.sales .table{
-    margin-top: 32px;
 }
 .col span{
     display: flex;

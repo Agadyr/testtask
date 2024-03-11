@@ -46,7 +46,6 @@
     }
     .order{
         width: 100% !important;
-
     }
 }
 @media (max-width:968px) {
@@ -99,6 +98,9 @@
     }
     .orders{
         padding: 20px;
+    }
+    .main{
+        margin-left: 0 !important;
     }
 }
 @media (max-width:540px) {
