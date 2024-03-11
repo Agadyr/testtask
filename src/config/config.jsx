@@ -126,7 +126,7 @@ export const finishOrders = [
 export const orders = [
     {
        "contragent_img":"/user.png",
-       "contragent_full_name":"Виктория Свидролова",
+       "contragent_full_name":"Тима Гей",
        "time":"4 минуты назад",
        "number":"0000001",
        "sum":100001,
@@ -134,7 +134,7 @@ export const orders = [
     },
     {
         "contragent_img":"/user.png",
-        "contragent_full_name":"Виктория Свидролова",
+        "contragent_full_name":"Нурали тоже",
         "time":"4 минуты назад",
         "number":"0000001",
         "sum":100002,
@@ -142,7 +142,7 @@ export const orders = [
      },
      {
         "contragent_img":"/user.png",
-        "contragent_full_name":"Виктория Свидролова",
+        "contragent_full_name":"Мади сеньор помидор",
         "time":"4 минуты назад",
         "number":"0000001",
         "sum":100002,
@@ -150,9 +150,9 @@ export const orders = [
      },
      {
         "contragent_img":"/user.png",
-        "contragent_full_name":"Виктория Свидролова",
+        "contragent_full_name":"Кайрамбеков Серик",
         "time":"4 минуты назад",
-        "number":"0000001",
+        "number":"0000002",
         "sum":100004,
         "status":"Новый"
      },

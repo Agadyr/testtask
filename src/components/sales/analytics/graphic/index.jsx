@@ -4,7 +4,7 @@ import { XAxis, YAxis, Tooltip, ResponsiveContainer, AreaChart, Area, CartesianG
 export default function Graphic({dataDay,data,dataMonth,valueSelect}){
     return (
         <div>
-            {valueSelect == 'Неделя' && <div style={{padding:"20px"}}>
+            {valueSelect == 'Неделя' && <div className='re-div' style={{padding:"20px"}}>
             <ResponsiveContainer width="100%" height={300}>
                     <AreaChart
                         width={500}
@@ -26,7 +26,7 @@ export default function Graphic({dataDay,data,dataMonth,valueSelect}){
                     </AreaChart>
                 </ResponsiveContainer>
             </div>}
-            {valueSelect == 'Месяц' && <div style={{padding:"20px"}}>
+            {valueSelect == 'Месяц' && <div className='re-div' style={{padding:"20px"}}>
             <ResponsiveContainer width="100%" height={300}>
                 <AreaChart
                     data={dataMonth}
@@ -50,7 +50,7 @@ export default function Graphic({dataDay,data,dataMonth,valueSelect}){
                 </AreaChart>
             </ResponsiveContainer>;
             </div>}
-            {valueSelect == 'Сегодня' && <div style={{padding:"20px"}}>
+            {valueSelect == 'Сегодня' && <div className='re-div' style={{padding:"20px"}}>
             <ResponsiveContainer width="100%" height={300}>
                 <AreaChart
                     data={dataDay}

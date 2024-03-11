@@ -147,15 +147,12 @@
     .period-header{
         display: none !important;
     }
-    .recharts-responsive-container{
+    .re-div{
         display: none;
     }
 }
 @media (max-width:390px) {
     .order .search-header{
-        display: none;
-    }
-    .sales{
         display: none;
     }
     header{

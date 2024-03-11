@@ -2,11 +2,10 @@
 import { faMagnifyingGlass, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import AboutOrder from "./about-order/page";
-import { orders } from "@/config/config";
 import { useState } from "react";
-export default function Order(){
+export default function Order({databack}){
     const [input, setInput] = useState("")
-    const [databack, setData] = useState(orders);
+    console.log(databack);
     const totalSum = databack.reduce((acc, curr) => acc + curr.sum, 0);
     const deleteItem = (item) => {
         let rm = [...databack]
@@ -42,7 +41,7 @@ export default function Order(){
                 </div>
             </div>
             <div className="order-header none mt2">
-                <span>{orders.length} заказа, {totalSum} ₸</span>
+                <span>{databack.length} заказа, {totalSum} ₸</span>
                 <FontAwesomeIcon icon={faPlus} className="icon-none"/>
             </div>
             <AboutOrder databack={databack} deleteItem={deleteItem}/>

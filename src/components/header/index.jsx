@@ -2,9 +2,7 @@
 
 import { faBars, faBurger, faMagnifyingGlass, faUser } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { useState } from "react"
-export default function Header(){
-    const [input, setInput] = useState("")
+export default function Header({setInput, input}){
     return (
         <div>
             <header className="header">
